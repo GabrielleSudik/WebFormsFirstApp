@@ -25,10 +25,16 @@
     <div>
         <label>Name</label>
         <asp:TextBox id="textName" CssClass="text-box" runat="server" />
+        <asp:RequiredFieldValidator runat="server" ID="rfvName" ControlToValidate="textName" ErrorMessage="*" Display="Dynamic" />
+<%--        that was a Validation Control. It makes sure that things/users do what they are supposed to--%>
     </div>
         <div>
         <label>Email</label>
         <asp:TextBox id="textEmail" CssClass="text-box" runat="server" />
+        <asp:RegularExpressionValidator runat="server" ID="revEmail" ControlToValidate="textEmail" 
+            ErrorMessage="Valid email address is required" ValidationExpression="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" />
+<%--        you can add more than one validator to the same control.--%>
+        <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="textEmail" ErrorMessage="*" Display="Dynamic"/>
     </div>
         <div>
         <label>Age</label>
@@ -37,11 +43,13 @@
     <div>
         <label>Favorite color</label>
         <asp:DropDownList ID="ddlColor" runat="server">
+            <asp:ListItem Text="Please choose a color" Value="" />
             <asp:ListItem Text="Brown" Value="Brown" />
             <asp:ListItem Text="Green" Value="Green" />
             <asp:ListItem Text="Pink" Value="Pink" />
             <asp:ListItem Text="Blue" Value="Blue" />
         </asp:DropDownList>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlColor" ErrorMessage="Color required" />
     </div>
     <div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit Info"
