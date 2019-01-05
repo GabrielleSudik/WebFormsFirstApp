@@ -29,4 +29,3 @@
 <%--    you need to create the events and dates variables in your code behind.
     this is done by hand. go check it out.--%>
 </asp:Content>
-

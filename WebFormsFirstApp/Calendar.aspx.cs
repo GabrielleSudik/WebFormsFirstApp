@@ -35,7 +35,7 @@ namespace WebFormsFirstApp
             //if the list already contains events:
             //I'm not sure what Session does... but I think the effect here is 
             //just "summoning" the list
-            if(Session["MyEvents"] != null)
+            if (Session["MyEvents"] != null)
             {
                 myEvents = (List<MyEvent>)Session["MyEvents"];
             }
@@ -60,6 +60,11 @@ namespace WebFormsFirstApp
             //rptEvents comes from the ID in aspx page
             rptEvents.DataSource = myEvents;
             rptEvents.DataBind();
+        }
+
+        protected void ddlStates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
